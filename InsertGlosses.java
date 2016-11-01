@@ -4,8 +4,8 @@ import java.io.*;
 
 class InsertGlosses {
 
-  final String mmoonPath = "/media/robert/work/shk/gloss_insert/";
-  final String glossPath = "/media/robert/work/shk/gloss_insert/";
+  final String mmoonPath = "/path/to/mmoon.ttl/";
+  final String glossPath = "/path/to/triple.txt/";
   String mmoon = "";
 
   private void run() {
