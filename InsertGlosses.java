@@ -67,7 +67,7 @@ class InsertGlosses {
 
   private void insertTriple(String[] triple) {
 
-    int idx_entry = mmoon.indexOf(":" + triple[0]);
+    int idx_entry = mmoon.indexOf(":" + triple[0] + " a owl:Class");
     int idx_line = mmoon.indexOf(";", idx_entry) + 1;
 
     StringBuilder builder = new StringBuilder(mmoon);
