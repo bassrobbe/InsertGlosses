@@ -11,11 +11,16 @@
 @prefix lexvo: <http://lexvo.org/ontology#> .
 
 <http://mmoon.org/mmoon/core/v1/> a owl:Ontology ;
-	:hasAbstractIdentity :MorphemicGloss_REFLPR ;
-	:hasAbstractIdentity :MorphemicGloss_TEMPADV ;
+	:hasAbstractIdentity :MorphemicGloss_MOD ;
+	:hasAbstractIdentity :MorphemicGloss_FOLK ;
+	:hasAbstractIdentity :MorphemicGloss_INT ;
+	:hasAbstractIdentity :MorphemicGloss_DECL ;
+	:hasAbstractIdentity :MorphemicGloss_REFL ;
 	:hasAbstractIdentity :MorphemicGloss_MATAR ;
+	:hasAbstractIdentity :MorphemicGloss_FREQ ;
 	:hasAbstractIdentity :MorphemicGloss_FEMN ;
 	:hasAbstractIdentity :MorphemicGloss_DIM ;
+	:hasAbstractIdentity :MorphemicGloss_N- ;
 	owl:imports <http://www.w3.org/2000/01/rdf-schema#> , <http://lexvo.org/ontology#> , <http://purl.org/linguistics/gold/> , <http://www.w3.org/2004/02/skos/core#> ;
 	rdfs:label "Multilingual Morpheme Ontology"@en ;
 	dct:license <https://creativecommons.org/licenses/by/4.0/> ;
@@ -636,7 +641,6 @@ lexvo:Language a owl:Class .
 	:hasAbstractIdentity :MorphemicGloss_ABL ;
 	owl:equivalentClass gold:AblativeCase ;
 	rdfs:subClassOf :Lative ;
-	:hasAbstractIdentity :MorphemicGloss_LAT ;
 	:definition """The ablative is a case that signals spatial orientation, esp. motion, away from the referent of its carrier.
 To the extent that it is grammaticalized in a language, its function may also include other circumstantial case roles.
 [Christian Lehmann, under \"ablative\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@en ;
@@ -654,7 +658,6 @@ The term stems from Latin grammar. In Latin and some other languages. the ablati
 :AbsoluteAdjective a owl:Class ;
 	:hasAbstractIdentity :MorphemicGloss_ABSADJ ;
 	rdfs:subClassOf :Adjective ;
-	:hasAbstractIdentity :MorphemicGloss_ADJ ;
 	:definition "Absolute adjective are non-gradable and express properties or states which can not be compared in a more or less degree."@en ;
 	:example "\"dead\", \"unique\""@en ;
 	:externalDefinition <http://www.canoo.net/services/OnlineGrammar/Wort/Adjektiv/Komparation/Steigerungslos.html?MenuId=Word325&lang=en#Anchor-49575> ;
@@ -693,7 +696,6 @@ The term stems from Latin grammar. In Latin and some other languages. the ablati
 	:hasAbstractIdentity :MorphemicGloss_ACC ;
 	owl:equivalentClass gold:AccusativeCase ;
 	rdfs:subClassOf :Oblique ;
-	:hasAbstractIdentity :MorphemicGloss_OBL ;
 	:definition """The accusative is the case that, in the accusative system of fundamental relations, marks the direct object and sometimes other syntactic functions, too.
 [Christian Lehmann, under \"accusative\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@en ;
 	:externalDefinition <http://purl.org/olia/olia.owl#Accusative> ;
@@ -734,7 +736,6 @@ The term stems from Latin grammar. In Latin and some other languages. the ablati
 :Adelative a owl:Class ;
 	:hasAbstractIdentity :MorphemicGloss_ADELAT ;
 	rdfs:subClassOf :Elative ;
-	:hasAbstractIdentity :MorphemicGloss_ELAT ;
 	:definition "The adelative is a case that signals spatial orientation, esp. motion, out of the region adjacent to the referent of its carrier. [Christian Lehmann, under \"adelative\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	rdfs:label "Adelative"@en .
 #
@@ -744,7 +745,6 @@ The term stems from Latin grammar. In Latin and some other languages. the ablati
 	:hasAbstractIdentity :MorphemicGloss_ADESS ;
 	owl:equivalentClass gold:AdessiveCase ;
 	rdfs:subClassOf :Essive ;
-	:hasAbstractIdentity :MorphemicGloss_ESS ;
 	:definition """The adessive is a case expressing rest near the referent or its carrier.
 It occurs in Finno-Ugric languages.
 [Christian Lehmann, under \"adessive\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@en ;
@@ -761,6 +761,7 @@ It occurs in Finno-Ugric languages.
 # http://mmoon.org/mmoon/core/v1/Adjective
 
 :Adjective a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_ADJ ;
 	owl:equivalentClass gold:Adjectival ;
 	rdfs:subClassOf :WordclassAffiliation ;
 	:definition "An adjective is a word that is a member of a part of speech whose prototypical members designate properties and, less prototypically, states. [Christian Lehmann, under \"adjective\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
@@ -859,7 +860,6 @@ The unit modified by an adverb is typically a clause, but may be any other categ
 :Affirmation a owl:Class ;
 	:hasAbstractIdentity :MorphemicGloss_AFFMT ;
 	owl:equivalentClass gold:PositivePolarity ;
-	:hasAbstractIdentity :MorphemicGloss_POS ;
 	rdfs:subClassOf :Polarity ;
 	:definition "Affirmation refers to positive polarity which usually contains no marker of negation."@en ;
 	:example <http://linguistics-ontology.org/gold/2010/PositivePolarity#examples> ;
@@ -904,7 +904,6 @@ The unit modified by an adverb is typically a clause, but may be any other categ
 
 :Aktionsart a owl:Class ;
 	rdfs:subClassOf :VerbExpansion ;
-	:hasAbstractIdentity :MorphemicGloss_V ;
 	:definition "Aktionsart is a derivational verbal category that concerns the internal temporal structure of the situation core designated by the verb. [Christian Lehmann, under \"Aktionsart\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	rdfs:label "Aktionsart"@en .
 #
@@ -978,13 +977,13 @@ Within one language, periphrasis is recognized by a paradigmatic relation betwee
 :Animal a owl:Class ;
 	:hasAbstractIdentity :MorphemicGloss_ANML ;
 	rdfs:subClassOf :Animate ;
-	:hasAbstractIdentity :MorphemicGloss_AN ;
 	:definition "Is a lexical category of nouns having animal referents."@en ;
 	rdfs:label "Animal"@en .
 #
 # http://mmoon.org/mmoon/core/v1/Animate
 
 :Animate a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_AN ;
 	owl:equivalentClass gold:AnimateGender ;
 	rdfs:subClassOf :AnimacyClassifier ;
 	:definition """A noun of a language is animate 1 iff it belongs either to
@@ -1007,7 +1006,6 @@ Within one language, periphrasis is recognized by a paradigmatic relation betwee
 :Anticausative a owl:Class ;
 	:hasAbstractIdentity :MorphemicGloss_ACAUS ;
 	rdfs:subClassOf :Intransitivizer ;
-	:hasAbstractIdentity :MorphemicGloss_INTRR ;
 	:definition "A verb is deagentive iff it is derived by a valency decrease which deletes the agent from the participant frame of the underlying base. The situation designated by the verb happens by itself, without the intervention of an agent. [Christian Lehmann, under \"anticausativity\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	:example """\"The door closed.\"
 
@@ -1035,7 +1033,6 @@ Within one language, periphrasis is recognized by a paradigmatic relation betwee
 :Aorist a owl:Class ;
 	:hasAbstractIdentity :MorphemicGloss_AOR ;
 	rdfs:subClassOf :Past ;
-	:hasAbstractIdentity :MorphemicGloss_PST ;
 	:definition "perfective past, as opposed to imperfect and durative. [Christian Lehmann, under \"aorist\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	:externalDefinition <http://purl.org/olia/olia.owl#Aorist> ;
 	rdfs:label "Aorist"@en .
@@ -1082,7 +1079,6 @@ The base may be transitive, in which case its direct object is demoted upon the 
 	:hasAbstractIdentity :MorphemicGloss_ART ;
 	owl:equivalentClass gold:Article ;
 	rdfs:subClassOf :Determiner ;
-	:hasAbstractIdentity :MorphemicGloss_DET ;
 	:definition "An article is a highly grammaticalized determiner that expresses one or a few of the basic determinations (definite/indefinite, generic/specific, given/new). [Christian Lehmann, under \"article\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	:example """The definite article \"the\" and the indefinite article \"a/an\" in English.
 [Christian Lehmann, under \"article\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@en ;
@@ -1153,7 +1149,6 @@ An exception is made for person and number morphemes, e.g. the third person sing
 	:hasAbstractIdentity :MorphemicGloss_AUD ;
 	owl:equivalentClass gold:AuditoryEvidentiality ;
 	rdfs:subClassOf :NonVisual ;
-	:hasAbstractIdentity :MorphemicGloss_NVIS ;
 	:definition """The auditory evidential is a nonvisual evidential that signals that the speaker has heard the situation designated by the sentence.
 [Christian Lehmann, under \"auditory evidential\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@en ;
 	:example <http://linguistics-ontology.org/gold/2010/AuditoryEvidentiality#examples> ;
@@ -1164,7 +1159,6 @@ An exception is made for person and number morphemes, e.g. the third person sing
 :Augmentation a owl:Class ;
 	:hasAbstractIdentity :MorphemicGloss_AUG ;
 	rdfs:subClassOf :NounExpansion ;
-	:hasAbstractIdentity :MorphemicGloss_NN ;
 	:definition """Augmentation is the derivational modification of a noun by the concept 'big, large'. Possible connotations include 'strong, imposing, ugly'.
 A noun is augmentative 1 iff it is derived by augmentation. [Christian Lehmann, under \"augmentation\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@en ;
 	:example "\"borod-a\" (noun 'beard') --> \"borod-isca\" (noun 'huge beard')"@ru ;
@@ -1198,7 +1192,6 @@ A noun is augmentative 1 iff it is derived by augmentation.
 	:hasAbstractIdentity :MorphemicGloss_AVERS ;
 	owl:equivalentClass gold:AversiveCase ;
 	rdfs:subClassOf :LocalCase ;
-	:hasAbstractIdentity :MorphemicGloss_LOCAL ;
 	:definition """The aversive is a case expressing a relation of aversion of the located object from the referent of its carrier.
 [Christian Lehmann, under \"aversive\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@en ;
 	:example """Djagubay (Australia):
@@ -1226,7 +1219,6 @@ SBJ.1.SG fear-PRS dog-AVERS
 	:hasAbstractIdentity :MorphemicGloss_DATBEN ;
 	:hasAbstractIdentity :MorphemicGloss_BENDAT ;
 	rdfs:subClassOf :Benefactive , :Dative ;
-	:hasAbstractIdentity :MorphemicGloss_DAT ;
 	:definition """The benfactive dative is a dative which expresses a benefactive relation of the NP so marked to the dependency controller.
 [Christian Lehmann, under \"benefactive dative\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@en ;
 	:usageNote """The term ‚dativus commodi’ is used in studies of Latin.
@@ -1239,7 +1231,6 @@ SBJ.1.SG fear-PRS dog-AVERS
 	:hasAbstractIdentity :MorphemicGloss_CARD ;
 	owl:equivalentClass gold:CardinalNumeral ;
 	rdfs:subClassOf :Numeral ;
-	:hasAbstractIdentity :MorphemicGloss_NUM ;
 	:definition "A cardinal numeral is a numeral which designates the cardinality of a set; i.e. it is used for counting and for expressing how many objects are referred to. [Christian Lehmann, under \"cardinal numeral\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	:example """one, two, three ...
 [Christian Lehmann, under \"cardinal numeral\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@en ;
@@ -1426,7 +1417,6 @@ http://www.glottopedia.org/index.php/Classifier"""@en ;
 	:hasAbstractIdentity :MorphemicGloss_COMP ;
 	owl:equivalentClass gold:Complementizer ;
 	rdfs:subClassOf :Conjunction ;
-	:hasAbstractIdentity :MorphemicGloss_CONJ ;
 	:definition "A complementizer is a subordinator that marks a complement clause.  [Christian Lehmann, under \"complementizer\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	:example """“that“ in \"I know that he is here\", \"I refuted the supposition that he is here\", or \"I am doubtful that he is here\".
 [Christian Lehmann, under \"complementizer\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@en ;
@@ -1539,6 +1529,7 @@ The conative is a verbal aspect or aktionsart which means that the agent of the 
 # http://mmoon.org/mmoon/core/v1/Conjunction
 
 :Conjunction a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_CONJ ;
 	owl:equivalentClass gold:Conjunction ;
 	rdfs:subClassOf :WordclassAffiliation ;
 	:definition """A conjunction is a word that syntactically links words or larger constituents and expresses a relationship between them.
@@ -1579,7 +1570,6 @@ Prototypically, a conjunction links two clauses. However, coordinative conjuncti
 	:hasAbstractIdentity :MorphemicGloss_CONTERM ;
 	owl:equivalentClass gold:ConterminativeCase ;
 	rdfs:subClassOf :Terminative ;
-	:hasAbstractIdentity :MorphemicGloss_TERM ;
 	:externalDefinition <http://purl.org/olia/olia.owl#ConterminativeCase> ;
 	:externalDefinitionDesc "ConterminativeCase expresses the notion of something moving into the vicinity of the referent of the noun it marks, but not through that region. It has the meaning 'moving into the vicinity of'. Kibrik says that Archi (aqc) possesses a nominal spatial form expressing ConterminativeCase, namely -rakana [Kibrik 1998: 470]."@en ;
 	rdfs:label "Conterminative"@en .
@@ -1621,7 +1611,6 @@ Continuitas situationis is the property of being continuous 1.
 
 :Converb a owl:Class ;
 	rdfs:subClassOf :NonFiniteVerb ;
-	:hasAbstractIdentity :MorphemicGloss_VNFIN ;
 	:definition "A converb is a non-finite verb form such that the subordinate clause whose head the converb is is neither a complement (“argument“) of the main verb nor an attribute to some nominal, but typically an adjunct to the main verb. [Christian Lehmann, under \"finite verb\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	rdfs:label "Converb"@en .
 #
@@ -1681,7 +1670,6 @@ It does not have the ability, however, to occur with a determiner such as much.
 :Crastinal a owl:Class ;
 	:hasAbstractIdentity :MorphemicGloss_CRAS ;
 	rdfs:subClassOf :Future ;
-	:hasAbstractIdentity :MorphemicGloss_FUT ;
 	:definition "a future tense referring to tomorrow. [Christian Lehmann, under \"crastinal future\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	rdfs:label "Crastinal"@en .
 #
@@ -1702,6 +1690,7 @@ under \"cross-reference\""""@en .
 # http://mmoon.org/mmoon/core/v1/Dative
 
 :Dative a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_DAT ;
 	owl:equivalentClass gold:DativeCase ;
 	rdfs:subClassOf :Oblique ;
 	:definition """The dative is the case that marks the indirect object. It may also be the case that marks NPs with the role of recipient and perhaps similar roles, as the beneficiary or the - adverbal -possessor.
@@ -1762,7 +1751,6 @@ More generally, the dativus ethicus is such an adjunct.
 # http://mmoon.org/mmoon/core/v1/DeclarativeMood
 
 :DeclarativeMood a owl:Class ;
-	:hasAbstractIdentity :MorphemicGloss_DECL ;
 	rdfs:subClassOf :Mood ;
 	:definition "Declarative mood is an epistemic mood that signals that the proposition expressed by a speaker’s utterance is offered as an unqualified statement of fact. (http://www-01.sil.org/linguistics/GlossaryOflinguisticTerms/WhatIsDeclarativeMood.htm)"@en ;
 	:externalDefinition <http://purl.org/olia/olia.owl#DeclarativeMood> ;
@@ -1781,7 +1769,6 @@ More generally, the dativus ethicus is such an adjunct.
 	:hasAbstractIdentity :MorphemicGloss_DEDUC ;
 	owl:equivalentClass gold:DeductiveEvidentiality ;
 	rdfs:subClassOf :Inferential ;
-	:hasAbstractIdentity :MorphemicGloss_INFR ;
 	:definition "DeductiveEvidentiality encodes the fact that the speaker came to believe the content of the expression through a sound inference procedure. [Palmer 2001: 6-8]."@en ;
 	:example <http://linguistics-ontology.org/gold/2010/DeductiveEvidentiality#examples> ;
 	:externalDefinition <http://purl.org/olia/olia.owl#DeductiveEvidentiality> ;
@@ -1841,7 +1828,6 @@ The definiteness of an NP is its property of being definite (or not).
 	:hasAbstractIdentity :MorphemicGloss_DEMPR ;
 	owl:equivalentClass gold:Demonstrative ;
 	rdfs:subClassOf :Pronoun ;
-	:hasAbstractIdentity :MorphemicGloss_PR ;
 	:definition "a pronoun with deictic function. [Christian Lehmann, under \"demonstrative pronoun\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	:externalDefinition <http://purl.org/olia/olia.owl#DemonstrativePronoun> ;
 	rdfs:label "Demonstrative Pronoun"@en .
@@ -2018,6 +2004,7 @@ The carrier of a destinative typically includes nominalized verb forms or even s
 # http://mmoon.org/mmoon/core/v1/Determiner
 
 :Determiner a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_DET ;
 	owl:equivalentClass gold:Determiner ;
 	rdfs:subClassOf :WordclassAffiliation ;
 	:definition "A determiner is a word or affix that modifies a nominal and forms a noun phrase with it. It functions as an operator of determination of this noun phrase.  [Christian Lehmann, under \"determiner\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
@@ -2099,7 +2086,6 @@ The carrier of a destinative typically includes nominalized verb forms or even s
 :DistributiveAktionsart a owl:Class ;
 	:hasAbstractIdentity :MorphemicGloss_DISTR ;
 	rdfs:subClassOf :IterativeAktionsart ;
-	:hasAbstractIdentity :MorphemicGloss_ITER ;
 	:definition "Is an iterative that expresses the application of an event to members of a group one after another, typically to the referents named by the subject of an intransitive verb or the object of a transitive verb. [Christian Lehmann, under \"distributive\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	:example """the Russian \"po-\" in \"On po-zapiral dveri\" 'He locked the doors one at a time' (example from Comrie 1985a: 344).
  [Christian Lehmann, under \"distributive\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@ru ;
@@ -2187,6 +2173,7 @@ Derivatively, a linguistic sign designating such a phenomenon is called dynamic.
 # http://mmoon.org/mmoon/core/v1/Elative
 
 :Elative a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_ELAT ;
 	owl:equivalentClass gold:ElativeCase ;
 	rdfs:subClassOf :Lative ;
 	:definition """The elative is a case expressing spatial orientation, esp. motion, out of the referent of its carrier.
@@ -2250,6 +2237,7 @@ _:genid57 a owl:Restriction ;
 # http://mmoon.org/mmoon/core/v1/Essive
 
 :Essive a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_ESS ;
 	owl:equivalentClass gold:EssiveCase ;
 	rdfs:subClassOf :LocalCase ;
 	:definition """The essive (casus essivus localis) is a case expressing a
@@ -2426,7 +2414,6 @@ particle 2: A particle (particula s.s.), or particle proper, is a particle (part
 # http://mmoon.org/mmoon/core/v1/Folklore
 
 :Folklore a owl:Class ;
-	:hasAbstractIdentity :MorphemicGloss_FOLK ;
 	owl:equivalentClass gold:FolkloreEvidentiality ;
 	rdfs:subClassOf :Evidentiality ;
 	:definition "Folklore evidentiality encodes the fact that the speaker came to believe the content of the expression through legend, folklore or some other established tradition [Palmer 2001: 40]. Palmer refers to the folklore evidential as a general knowledge evidential."@en ;
@@ -2436,7 +2423,6 @@ particle 2: A particle (particula s.s.), or particle proper, is a particle (part
 # http://mmoon.org/mmoon/core/v1/FrequentativeAktionsart
 
 :FrequentativeAktionsart a owl:Class ;
-	:hasAbstractIdentity :MorphemicGloss_FREQ ;
 	rdfs:subClassOf :IterativeAktionsart ;
 	:definition "Is a kind of iterative. [Christian Lehmann, under \"frequentative\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	rdfs:label "Frequentative Aktionsart"@en .
@@ -2471,6 +2457,7 @@ This often the case for inherent meanings such as number for nouns or tense for 
 # http://mmoon.org/mmoon/core/v1/Future
 
 :Future a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_FUT ;
 	owl:equivalentClass gold:FutureTense ;
 	rdfs:subClassOf :AbsoluteTense ;
 	:definition "an absolute tense that refers to a time as located after the moment of utterance. [Christian Lehmann, under \"future\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
@@ -2687,7 +2674,6 @@ The imperfective 2 is the imperfective 1 aspect. [Christian Lehmann, under \"imp
 	:hasAbstractIdentity :MorphemicGloss_IPS ;
 	owl:equivalentClass gold:ImpersonalPassiveVoice ;
 	rdfs:subClassOf :Passive ;
-	:hasAbstractIdentity :MorphemicGloss_PASS ;
 	:definition "An impersonal passive is a passive construction which has no subject.  [Christian Lehmann, under \"impersonal passive\" at http://linguistik.uni-erfurt.de:8080/lido/Lido ]"@en ;
 	:example """\"Hier wird getanzt.\" 'There is dancing here.'
 [Christian Lehmann, under \"impersonal passive\" at http://linguistik.uni-erfurt.de:8080/lido/Lido ]"""@de ;
@@ -2820,6 +2806,7 @@ This term is used especially in Finnish grammatical studies.
 # http://mmoon.org/mmoon/core/v1/Inferential
 
 :Inferential a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_INFR ;
 	owl:equivalentClass gold:InferentialEvidentiality ;
 	rdfs:subClassOf :Evidentiality ;
 	:definition """The inferential evidential is an evidential that signals that the sentence is being inferred from observable evidence.
@@ -2974,7 +2961,6 @@ An interjection is typically brief, used most often as an exclamation or as part
 # http://mmoon.org/mmoon/core/v1/Interrogative
 
 :Interrogative a owl:Class ;
-	:hasAbstractIdentity :MorphemicGloss_INT ;
 	rdfs:subClassOf :Mood ;
 	:definition """The interrogative is a mood that signals a question.
 
@@ -3007,13 +2993,13 @@ An interjection is typically brief, used most often as an exclamation or as part
 	:hasAbstractIdentity :MorphemicGloss_INTTRANS ;
 	owl:equivalentClass gold:IntertranslativeCase ;
 	rdfs:subClassOf :Translative ;
-	:hasAbstractIdentity :MorphemicGloss_TRANS ;
 	:externalDefinition <http://purl.org/olia/olia.owl#IntertranslativeCase> ;
 	rdfs:label "Intertranslative"@en .
 #
 # http://mmoon.org/mmoon/core/v1/Intransitivizer
 
 :Intransitivizer a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_INTRR ;
 	owl:equivalentClass gold:Intransitivizer ;
 	rdfs:subClassOf :ValencyChange ;
 	:definition "Intransitivation is a valency decrease which renders a verb intransitive. [Christian Lehmann, under \"intransiviation\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
@@ -3076,6 +3062,7 @@ Introversion is an intransitivation which suppresses the direct object slot of t
 # http://mmoon.org/mmoon/core/v1/IterativeAktionsart
 
 :IterativeAktionsart a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_ITER ;
 	rdfs:subClassOf :Aktionsart ;
 	:definition """A verb is iterative iff it designates a sequence of instances of a given elementary situation.
 The notion will normally be relevant only if there is an iterative derivation. [Christian Lehmann, under \"iterative\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@en ;
@@ -3112,6 +3099,7 @@ The notion will normally be relevant only if there is an iterative derivation. [
 # http://mmoon.org/mmoon/core/v1/Lative
 
 :Lative a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_LAT ;
 	owl:equivalentClass gold:LativeCase ;
 	rdfs:subClassOf :LocalCase ;
 	:definition """A lative is a case that expresses motion with respect to the referent of its carrier.
@@ -3153,6 +3141,7 @@ A lexeme [lexema] is a word in its capacity as a unit of the lexicon. In a text,
 # http://mmoon.org/mmoon/core/v1/LocalCase
 
 :LocalCase a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_LOCAL ;
 	rdfs:subClassOf :Oblique ;
 	:definition """A local case is any case such that the NP carrying it designates a reference point for the situation of the clause and the case designates the local relation to this reference point, plus possibly a spatial region of the latter.
 [Christian Lehmann, under \"local case\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@en ;
@@ -3197,7 +3186,6 @@ A lexeme [lexema] is a word in its capacity as a unit of the lexicon. In a text,
 # http://mmoon.org/mmoon/core/v1/MannerCase
 
 :MannerCase a owl:Class ;
-	:hasAbstractIdentity :MorphemicGloss_MOD ;
 	rdfs:subClassOf :Oblique ;
 	:definition """a case or a case relator marking the semantic role of manner.
 [Christian Lehmann, under \"manner\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@en ;
@@ -3364,7 +3352,6 @@ The case appears also in Finnish as an adverbial (adverb-forming) case. Used wit
 :Negation a owl:Class ;
 	:hasAbstractIdentity :MorphemicGloss_NEG ;
 	owl:equivalentClass gold:NegativePolarity ;
-	:hasAbstractIdentity :MorphemicGloss_N- ;
 	rdfs:subClassOf :Polarity ;
 	:definition """A linguistic sign - prototypically a clause - is negative iff negation has applied to it.
 Negation is an operation on a linguistic sign which converts its meaning into the contradictory one. Its prototypical instance is a speech act which declares false the proposition which constitutes the operand. However, negation may apply at all linguistic levels from the sentence down to the word.
@@ -3464,6 +3451,7 @@ A negator is a grammatical formative - a particle or affix - which combines with
 # http://mmoon.org/mmoon/core/v1/NonFiniteVerb
 
 :NonFiniteVerb a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_VNFIN ;
 	rdfs:subClassOf :Verb ;
 	:definition "A nonfinite verb is a verb which is nonfinite. [Christian Lehmann, under \"nonfinite verb\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	rdfs:label "Non-Finite Verb"@en .
@@ -3489,9 +3477,9 @@ A negator is a grammatical formative - a particle or affix - which combines with
 # http://mmoon.org/mmoon/core/v1/NonVisual
 
 :NonVisual a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_NVIS ;
 	owl:equivalentClass gold:OtherThanVisualEvidentiality ;
 	rdfs:subClassOf :Sensory ;
-	:hasAbstractIdentity :MorphemicGloss_SENS ;
 	:definition """The nonvisual evidential is a sensory evidential that signals that the speaker has perceived, although not seen, the situation designated by the sentence.
 [Christian Lehmann, under \"nonvisual evidential\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"""@en ;
 	rdfs:label "Nonvisual"@en .
@@ -3499,6 +3487,7 @@ A negator is a grammatical formative - a particle or affix - which combines with
 # http://mmoon.org/mmoon/core/v1/Noun
 
 :Noun a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_NN ;
 	owl:equivalentClass gold:Noun ;
 	rdfs:subClassOf :WordclassAffiliation ;
 	:definition "A noun s.s. is a word that is a member of a part of speech whose prototypical members designate physical objects. [Christian Lehmann, under \"noun\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
@@ -3532,6 +3521,7 @@ A negator is a grammatical formative - a particle or affix - which combines with
 # http://mmoon.org/mmoon/core/v1/Numeral
 
 :Numeral a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_NUM ;
 	owl:equivalentClass gold:Numeral ;
 	rdfs:subClassOf :WordclassAffiliation ;
 	:definition "A numeral is a word which either expresses a number or a relation to a number, such as quantity, sequence, frequency, or fraction. [Christian Lehmann, under \"numeral\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
@@ -3561,6 +3551,7 @@ A negator is a grammatical formative - a particle or affix - which combines with
 # http://mmoon.org/mmoon/core/v1/Oblique
 
 :Oblique a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_OBL ;
 	owl:equivalentClass gold:ObliqueCase ;
 	rdfs:subClassOf :Case ;
 	:definition """An oblique case is any case except the casus rectus of the respective system.
@@ -3633,6 +3624,7 @@ The genitive may have a partitive reading, as in Latin. French has a so-called p
 # http://mmoon.org/mmoon/core/v1/Passive
 
 :Passive a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_PASS ;
 	owl:equivalentClass gold:PassiveVoice ;
 	rdfs:subClassOf :Voice ;
 	:definition """The passive is a voice which demotes the actor (in subject function) to an adjunct (e.g. a â€šby-phraseâ€™). If there is an undergoer (in direct object function), it is promoted to subject function.
@@ -3643,6 +3635,7 @@ The passive can generally only be formed from agentive verbs. [Christian Lehmann
 # http://mmoon.org/mmoon/core/v1/Past
 
 :Past a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_PST ;
 	owl:equivalentClass gold:PastTense ;
 	rdfs:subClassOf :AbsoluteTense ;
 	:definition "Past is an absolute tense that refers to a time preceding the moment of utterance. [Christian Lehmann, under \"past\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
@@ -3794,6 +3787,7 @@ In some languages the plural is also used for generics and objects that always o
 # http://mmoon.org/mmoon/core/v1/Positive
 
 :Positive a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_POS ;
 	rdfs:subClassOf :DegreeOfComparison ;
 	:definition "The positive is the basic form of an adjective with regard to degrees of comparison. [Christian Lehmann, under \"positive\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	:externalDefinition <http://purl.org/olia/olia.owl#Positive> ;
@@ -4038,6 +4032,7 @@ The possessive pronoun is normally a modifier to a head noun that represents the
 # http://mmoon.org/mmoon/core/v1/Pronoun
 
 :Pronoun a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_PR ;
 	owl:equivalentClass gold:Pronominal ;
 	rdfs:subClassOf :WordclassAffiliation ;
 	:definition "A pronoun is a pro-form that belongs to a nominal syntactic category, The prototypical pronoun has the same distribution as an NP. [Christian Lehmann, under \"pronoun\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
@@ -4191,7 +4186,7 @@ Often, the reflexive pronoun functions as a reciprocal pronoun. [Christian Lehma
 # http://mmoon.org/mmoon/core/v1/ReflexivePronoun
 
 :ReflexivePronoun a owl:Class ;
-	:hasAbstractIdentity :MorphemicGloss_REFL ;
+	:hasAbstractIdentity :MorphemicGloss_REFLPR ;
 	owl:equivalentClass gold:ReflexivePronoun ;
 	rdfs:subClassOf :Pronoun ;
 	:definition "A reflexive pronoun is a pronoun which is coreferent with a nominal expression of the same sentence which has some higher-ranging syntactic function, usually the subject. [Christian Lehmann, under \"reflexive pronoun\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
@@ -4420,6 +4415,7 @@ _:genid61 rdf:rest rdf:nil .
 # http://mmoon.org/mmoon/core/v1/Sensory
 
 :Sensory a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_SENS ;
 	owl:equivalentClass gold:DirectEvidentiality ;
 	rdfs:subClassOf :Evidentiality ;
 	:definition """Sensory evidential is an evidential that signals that the speaker has perceived the situation designated by the sentence.
@@ -4702,6 +4698,7 @@ In a compound word: The stem is the morphological representative of one of the t
 # http://mmoon.org/mmoon/core/v1/TemporalAdverb
 
 :TemporalAdverb a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_TEMPADV ;
 	rdfs:subClassOf :Adverb ;
 	:definition "A temporal adverb is an adverb which refers to the time of an action. [Christian Lehmann, under \"temporal adverb\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
 	:example """Yagua has an adverb \"tââriy\" which means something like 'long time'. With a clause in the past tense it means 'a long time ago', in other clauses it means 'for a long time'  or 'late in the afternoon'.
@@ -4730,6 +4727,7 @@ The most important temporal relations between the two time-points are simultanei
 # http://mmoon.org/mmoon/core/v1/Terminative
 
 :Terminative a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_TERM ;
 	owl:equivalentClass gold:TerminativeCase ;
 	rdfs:subClassOf :Lative ;
 	:definition """The terminative is a case that expresses motion as far as or up to the location of the referent of its carrier.
@@ -4816,6 +4814,7 @@ marsh(NOM) change:PAST-3.SG field-TRNSF
 # http://mmoon.org/mmoon/core/v1/Translative
 
 :Translative a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_TRANS ;
 	owl:equivalentClass gold:TranslativeCase ;
 	rdfs:subClassOf :Lative ;
 	:definition """The translative is a case marking an NP through whose referent something moves.
@@ -4862,6 +4861,7 @@ It may have distinguishing features such as the following:
 # http://mmoon.org/mmoon/core/v1/Verb
 
 :Verb a owl:Class ;
+	:hasAbstractIdentity :MorphemicGloss_V ;
 	owl:equivalentClass gold:Verbal ;
 	rdfs:subClassOf :WordclassAffiliation ;
 	:definition "A verb is a word that is a member of a part of speech whose prototypical members designate events and processes. [Christian Lehmann, under \"verb\" at http://linguistik.uni-erfurt.de:8080/lido/Lido]"@en ;
@@ -5638,7 +5638,7 @@ gold:VoiceProperty a owl:Class .
 # #################################################################
 #
 #
-# 
+#
 
 
 :MorphemicGloss_ATTEN a owl:NamedIndividual , :MorphemicGloss ;
@@ -6130,7 +6130,7 @@ gold:VoiceProperty a owl:Class .
 	rdfs:label "ADV"^^xsd:string .
 
 :MorphemicGloss_TEMPADV a owl:NamedIndividual , :MorphemicGloss ;
-	rdfs:comment "Temporal  Adverb gloss."@en ;
+	rdfs:comment "TemporalAdverb gloss."@en ;
 	rdfs:label "TEMPADV"^^xsd:string .
 
 :MorphemicGloss_LOCADV a owl:NamedIndividual , :MorphemicGloss ;
@@ -6222,7 +6222,7 @@ gold:VoiceProperty a owl:Class .
 	rdfs:label "RECPR"^^xsd:string .
 
 :MorphemicGloss_REFLPR a owl:NamedIndividual , :MorphemicGloss ;
-	rdfs:comment "Reflexive Pronoun gloss."@en ;
+	rdfs:comment "ReflexivePronoun gloss."@en ;
 	rdfs:label "REFLPR"^^xsd:string .
 
 :MorphemicGloss_RELPR a owl:NamedIndividual , :MorphemicGloss ;
