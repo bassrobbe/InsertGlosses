@@ -4,8 +4,8 @@ import java.io.*;
 
 class InsertGlosses {
 
-  final String mmoonPath = "/path/to/mmoon.ttl/";
-  final String glossPath = "/path/to/triple.txt/";
+  final String mmoonPath = "/.../";
+  final String glossPath = "/.../";
   String mmoon = "";
 
   private void run() {
@@ -66,14 +66,17 @@ class InsertGlosses {
   }
 
   private void insertTriple(String[] triple) {
-
-    int idx_entry = mmoon.indexOf(":" + triple[0] + " a owl:Class");
+    //System.out.println(triple[0] + " " + triple[1] + " " + triple[2]);
+    int idx_entry = mmoon.indexOf("\n:" + triple[0] + " rdf:type owl:Class");
     int idx_line = mmoon.indexOf(";", idx_entry) + 1;
 
-    StringBuilder builder = new StringBuilder(mmoon);
-    builder.insert(idx_line, "\n\t:hasAbstractIdentity :MorphemicGloss_" + triple[2] + " ;");
-    mmoon = builder.toString();
-
+    if (idx_entry==-1){
+      System.out.println(triple[0] + " " + idx_entry);
+    } else {
+      StringBuilder builder = new StringBuilder(mmoon);
+      builder.insert(idx_line, "\n\t:hasAbstractIdentity :MorphemicGloss_" + triple[2] + " ;");
+      mmoon = builder.toString();
+    }
   }
 
   private void insertIndividual(String[] triple) {
